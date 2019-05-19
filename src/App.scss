@@ -21,25 +21,8 @@
   z-index: 0;
 }
 
-.banner {
-  background-image: url("./banner_1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 20vh;
-  padding-bottom: 20vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 65px;
-}
 
-.grid-products {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: space-between;
-}
+
 
 .card {
   text-decoration: none;
