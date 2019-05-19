@@ -1,0 +1,57 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.no-margin {
+  &.no-margin-full { margin: 0; }
+  &.no-margin-top { margin-top: 0; }
+  &.no-margin-right { margin-right: 0; }
+  &.no-margin-bottom { margin-bottom: 0; }
+  &.no-margin-left { margin-left: 0; }
+}
+
+.text-align {
+  &.text-align-center { text-align: center; }
+}
+
+.color {
+  &.white-color { color: white; }
+}
+
+.btn {
+  &.btn-nothing {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.list {
+  &.list-none {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
