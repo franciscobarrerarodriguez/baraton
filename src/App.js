@@ -7,11 +7,10 @@ import FiltersLayout from './filters/containers/FiltersLayout';
 import Banner from './banner/components/Banner';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister, faShoppingCart, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import HandleError from "./errors/containers/handleError";
 
-library.add(faCashRegister, faShoppingCart, faChevronDown);
+library.add(faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus);
 
 function App() {
   return (
@@ -21,8 +20,8 @@ function App() {
           <div className="rappicommerce-content">
             <Banner/>
             <div className="row center-row">
-              <div className="container flex-container">
-                <div className="col-4">
+              <div className="container flex-container flex-space-between">
+                <div className="col-20">
                   <FiltersLayout />
                 </div>
                 <ProductsLayout />

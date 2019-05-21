@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import './ProductCard.scss';
+
 const ProductCard = (props) => (
     <a href="#!" className="card product-card">
         <div className="card-header">

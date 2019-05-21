@@ -12,7 +12,7 @@ class ProductsLayout extends Component {
 
     render() {
         return(
-            <div className="col-8 grid-products">
+            <div className="col-75 grid-products">
                 <ProductCard handleAddToChart={ this.handleAddToChart }/>
                 <ProductCard handleAddToChart={ this.handleAddToChart }/>
                 <ProductCard handleAddToChart={ this.handleAddToChart }/>
