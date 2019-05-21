@@ -9,10 +9,6 @@ class Navbar extends Component {
         handleError: false
     }
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <nav className="navbar">

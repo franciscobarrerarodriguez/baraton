@@ -4,15 +4,22 @@ import StockQuantity from '../components/StockQuantity';
 import Availability from '../components/Availability';
 import Categories from '../components/Categories';
 
-
 import './Filters.scss';
+
+import data from './categories';
 
 class FiltersLayout extends Component {
 
     state = {
         stockQuantity: 0,
         available: false,
-        range: 50
+        range: 50,
+        categories: {},
+        filteredCategories: {}
+    }
+
+    componentWillMount() {
+        this.setState({ categories: data.categories });
     }
 
     handleChangeRange = event => {
@@ -39,7 +46,7 @@ class FiltersLayout extends Component {
                            range={ this.state.range }/>
                 </div>
                 <div className="filter-row">
-                    <Categories/>
+                    <Categories categories={ this.state.categories }/>
                 </div>
                 <div className="filter-row">
                     <StockQuantity handleIncreaseStock={ this.handleIncreaseStock }
