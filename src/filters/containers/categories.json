@@ -37,7 +37,13 @@
 						"sublevels": [
 							{
 								"id": 7,
-								"name": "Fake 4"
+								"name": "Fake 4",
+								"sublevels": [
+									{
+										"id": 14,
+										"name": "Fake 14"
+									}
+								]
 							}
 						]
 					}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import ProductCard from "../components/productCard";
 
 import './ProductsLayout.scss';
@@ -15,9 +17,13 @@ class ProductsLayout extends Component {
         this.setState({ filteredProducts: data.products });
     }
 
-    handleAddToChart = (event) => {
-        event.preventDefault();
-        console.log("add To chart")
+    handleAddToChart = productId => {
+        this.props.dispatch({
+            type: 'ADD_TO_SHOPPING_CHART',
+            payload: {
+                query: productId
+            }
+        });
     }
 
     render() {
@@ -26,7 +32,6 @@ class ProductsLayout extends Component {
                 {
                     this.state.filteredProducts.map((product, index) => {
                         return <ProductCard handleAddToChart={ this.handleAddToChart } key={ index } product={ product }/>
-
                     })
                 }
             </div>
@@ -34,4 +39,4 @@ class ProductsLayout extends Component {
     }
 }
 
-export default ProductsLayout;
+export default connect()(ProductsLayout);

@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Subcategories from "./Subcategories";
 
-const Categories = props => (
-    <div className="filter-item">
-        <label className="filter-item-head">Categories</label>
-        <div className="filter-item-body">
-            <ul className="filter-group filter-categories no-margin no-margin-full no-padding no-padding-full list list-none">
+class Categories extends Component {
+
+    state = {
+        categories: []
+    }
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillMount() {
+        this.setState({ categories: this.props.categories });
+    }
+
+    buildCategoryTree = (category, index) => {
+        return (
+            <li className="category-item" key={ index }>
+                <a href="#!">{ category.name }</a>
                 {
-                    props.categories.map((category, index) => {
-                        return (
-                            <li className="category-item" key={ index }>
-                                <a href="#!">{ category.name }</a>
-                                <ul className="no-margin no-margin-full no-padding no-padding-full list list-none subcategory-list">
-                                    <li className="subcategory-item">
-                                        <a href="#!">SubCategory 1</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        )
-                    })
+                    category.sublevels !== null &&
+                        <Subcategories subcategories={ category.sublevels }/>
                 }
-            </ul>
-        </div>
-    </div>
-)
+            </li>
+        )
+    }
+
+    render() {
+        return(
+            <div className="filter-item">
+                <label className="filter-item-head">Categories</label>
+                <div className="filter-item-body">
+                    <ul className="filter-group filter-categories no-margin no-margin-full no-padding no-padding-full list list-none">
+                        {
+                            this.state.categories.map((category, index) => {
+                                return this.buildCategoryTree(category, index)
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
+        )
+    }
+}
 
 export default Categories;

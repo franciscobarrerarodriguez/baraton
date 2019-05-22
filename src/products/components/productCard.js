@@ -6,7 +6,7 @@ import './ProductCard.scss';
 const ProductCard = (props) => (
     <a href="#!" className="card product-card">
         <div className="card-header">
-            <button className="btn btn-nothing" onClick={ props.handleAddToChart }>
+            <button className="btn btn-nothing" onClick={ () => { props.handleAddToChart(props.product.id) } }>
                 <FontAwesomeIcon icon="shopping-cart" />
             </button>
             <span className="card-price">$ { props.product.price }</span>
