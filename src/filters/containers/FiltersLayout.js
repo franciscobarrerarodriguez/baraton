@@ -22,7 +22,14 @@ class FiltersLayout extends Component {
     componentWillMount() {
         this.setState({ categories: data.categories });
         this.setState({ range: this.props.range });
+    }
 
+    componentDidUpdate() {
+        console.log('enviando a redux')
+        this.props.dispatch({
+            type: 'FILTER_PRODUCTS',
+            payload: { this.state }
+        });
     }
 
     handleChangeRange = event => {

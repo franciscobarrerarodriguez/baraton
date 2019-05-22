@@ -17,11 +17,12 @@ class ProductsLayout extends Component {
         this.setState({ filteredProducts: data.products });
     }
 
-    handleAddToChart = productId => {
+    handleAddToChart = (productId, productPrice) => {
         this.props.dispatch({
             type: 'ADD_TO_SHOPPING_CHART',
             payload: {
-                query: productId
+                productId,
+                productPrice
             }
         });
     }

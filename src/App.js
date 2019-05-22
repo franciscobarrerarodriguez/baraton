@@ -2,8 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-
-
 import './App.scss';
 
 import Navbar from './nav/components/navbar';
@@ -24,7 +22,8 @@ const initialState = {
   data: {
     ...data
   },
-  shoppingChart: []
+  shoppingChart: [],
+  search: []
 }
 
 const store = createStore(
