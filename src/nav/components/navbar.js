@@ -11,11 +11,24 @@ class Navbar extends Component {
     }
 
     totalPrice = () => {
-        total = 0;
-        this.props.shoppingChart.products.map(product => {
-            total = total + product.price;
-        });
-        return total;
+        if (this.props.shoppingChart.products) {
+            let total = 0;
+            this.props.shoppingChart.products.map(product => {
+                product.price = product.price.replace(',','');
+                total = total + Number(product.price) * product.quantity;
+            });
+            return total;
+        }
+    }
+
+    totalItems = () => {
+        if (this.props.shoppingChart.products) {
+            let total = 0;
+            this.props.shoppingChart.products.map(product => {
+                total = total + product.quantity;
+            });
+            return total;
+        }
     }
 
     render() {
@@ -30,8 +43,9 @@ class Navbar extends Component {
                         <ul className="list list-none">
                             <li>
                                 <button className="btn btn-nothing nav-chart">
-                                    <span>{ this.props.shoppingChart.products.lenght } Items (${ this.totalPrice })</span>
+                                    <span>($ { this.totalPrice() })</span>
                                     <FontAwesomeIcon icon="shopping-cart" className="nav-chart-icon"/>
+                                    <span><b>{ this.totalItems() }</b></span>
                                     <FontAwesomeIcon icon="chevron-down"  className="nav-chart-icon"/>
                                 </button>
                             </li>

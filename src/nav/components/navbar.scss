@@ -32,7 +32,12 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    .nav-chart-icon { margin-left: 10px; }
+    .nav-chart-icon {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .nav-chart-icon:last-of-type { margin-right: 0; }
 
   }
 

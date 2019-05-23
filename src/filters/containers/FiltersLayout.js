@@ -25,11 +25,11 @@ class FiltersLayout extends Component {
     }
 
     componentDidUpdate() {
-        console.log('enviando a redux')
-        this.props.dispatch({
-            type: 'FILTER_PRODUCTS',
-            payload: { this.state }
-        });
+        // console.log('enviando a redux')
+        // this.props.dispatch({
+        //     type: 'FILTER_PRODUCTS',
+        //     payload: { this.state }
+        // });
     }
 
     handleChangeRange = event => {
