@@ -21,7 +21,7 @@ class Categories extends Component {
                 <a href="#!">{ category.name }</a>
                 {
                     category.sublevels !== null &&
-                        <Subcategories subcategories={ category.sublevels }/>
+                        <Subcategories subcategories={ category.sublevels } handleChangeCategory={ this.props.handleChangeCategory }/>
                 }
             </li>
         )

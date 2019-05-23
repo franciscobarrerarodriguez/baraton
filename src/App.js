@@ -22,8 +22,7 @@ const initialState = {
   data: {
     ...data
   },
-  shoppingChart: [],
-  search: []
+  shoppingChart: localStorage.getItem('shoppingChart') ? JSON.parse(localStorage.getItem('shoppingChart')) : {products: []}
 }
 
 const store = createStore(

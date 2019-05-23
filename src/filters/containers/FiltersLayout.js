@@ -14,22 +14,23 @@ class FiltersLayout extends Component {
 
     state = {
         stockQuantity: 0,
-        available: false,
-        range: 50,
+        available: true,
+        range: 25000,
         categories: {},
+        category: ''
     }
 
     componentWillMount() {
         this.setState({ categories: data.categories });
-        this.setState({ range: this.props.range });
     }
 
     componentDidUpdate() {
-        // console.log('enviando a redux')
-        // this.props.dispatch({
-        //     type: 'FILTER_PRODUCTS',
-        //     payload: { this.state }
-        // });
+        this.props.dispatch({
+            type: 'FILTER_PRODUCTS',
+            payload: {
+                ...this.state
+            }
+        });
     }
 
     handleChangeRange = event => {
@@ -48,6 +49,10 @@ class FiltersLayout extends Component {
         this.setState({ available: !this.state.available });
     }
 
+    handleChangeCategory = (sublevelId) => {
+        this.setState({ category: sublevelId })
+    }
+
     render() {
         return(
             <div className="col-20">
@@ -57,7 +62,7 @@ class FiltersLayout extends Component {
                                range={ this.state.range }/>
                     </div>
                     <div className="filter-row">
-                        <Categories categories={ this.state.categories }/>
+                        <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }/>
                     </div>
                     <div className="filter-row">
                         <StockQuantity handleIncreaseStock={ this.handleIncreaseStock }

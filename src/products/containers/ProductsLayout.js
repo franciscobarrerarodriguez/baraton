@@ -5,17 +5,7 @@ import ProductCard from "../components/productCard";
 
 import './ProductsLayout.scss';
 
-import data from './products';
-
 class ProductsLayout extends Component {
-
-    state = {
-        filteredProducts: {}
-    }
-
-    componentWillMount() {
-        this.setState({ filteredProducts: data.products });
-    }
 
     handleAddToChart = (productId, productPrice) => {
         this.props.dispatch({
@@ -31,13 +21,20 @@ class ProductsLayout extends Component {
         return(
             <div className="col-75 grid-products">
                 {
-                    this.state.filteredProducts.map((product, index) => {
-                        return <ProductCard handleAddToChart={ this.handleAddToChart } key={ index } product={ product }/>
-                    })
+                    this.props.products &&
+                        this.props.products.map((product, index) => {
+                            return <ProductCard handleAddToChart={ this.handleAddToChart } key={ index } product={ product }/>
+                        })
                 }
             </div>
         )
     }
 }
 
-export default connect()(ProductsLayout);
+function mapStateToProps(state, props) {
+    return {
+        products: state.data.products
+    }
+}
+
+export default connect(mapStateToProps)(ProductsLayout);

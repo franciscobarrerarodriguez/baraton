@@ -4,15 +4,15 @@
     "price": "8,958",
     "available": false,
     "sublevel_id": 3,
-    "name": "aute",
+    "name": "Coca cola",
     "id": "58b5a5b1b6b6c7aacc25b3fb"
   },
   {
-    "quantity": 891,
+    "quantity": 1,
     "price": "5,450",
     "available": true,
     "sublevel_id": 3,
-    "name": "mollit",
+    "name": "Sprite",
     "id": "58b5a5b117bf36cf8aed54ab"
   },
   {

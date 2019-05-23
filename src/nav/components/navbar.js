@@ -15,20 +15,22 @@ class Navbar extends Component {
             let total = 0;
             this.props.shoppingChart.products.map(product => {
                 product.price = product.price.replace(',','');
-                total = total + Number(product.price) * product.quantity;
+                return total = total + Number(product.price) * product.quantity;
             });
             return total;
         }
+        return '';
     }
 
     totalItems = () => {
         if (this.props.shoppingChart.products) {
             let total = 0;
             this.props.shoppingChart.products.map(product => {
-                total = total + product.quantity;
+                return total = total + product.quantity;
             });
             return total;
         }
+        return '';
     }
 
     render() {
