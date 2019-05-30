@@ -37,6 +37,17 @@ function products(state, action) {
                 data: { products: results }
             }
         }
+        case 'FILTER_BY_CATEGORY': {
+            let results = [];
+            const list = state.data.products;
+            results = list.filter(product => {
+                return action.payload.category === product.sublevel_id;
+            });
+            return {
+                ...state,
+                data: { products: results }
+            }
+        }
         default:
             return state;
     }

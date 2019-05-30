@@ -25,12 +25,12 @@ class FiltersLayout extends Component {
     }
 
     componentDidUpdate() {
-        this.props.dispatch({
-            type: 'FILTER_PRODUCTS',
-            payload: {
-                ...this.state
-            }
-        });
+        // this.props.dispatch({
+        //     type: 'FILTER_PRODUCTS',
+        //     payload: {
+        //         ...this.state
+        //     }
+        // });
     }
 
     handleChangeRange = event => {
@@ -51,6 +51,10 @@ class FiltersLayout extends Component {
 
     handleChangeCategory = (sublevelId) => {
         this.setState({ category: sublevelId })
+        this.props.dispatch({
+            type: 'FILTER_BY_CATEGORY',
+            payload: { category: sublevelId }
+        });
     }
 
     render() {
@@ -58,11 +62,13 @@ class FiltersLayout extends Component {
             <div className="col-20">
                 <div className="filters">
                     <div className="filter-row">
+                        <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }/>
+                    </div>
+                </div>
+                <div className="filters">
+                    <div className="filter-row">
                         <Range handleChangeRange={ this.handleChangeRange }
                                range={ this.state.range }/>
-                    </div>
-                    <div className="filter-row">
-                        <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }/>
                     </div>
                     <div className="filter-row">
                         <StockQuantity handleIncreaseStock={ this.handleIncreaseStock }
