@@ -1,81 +1,94 @@
-{ "categories": [
-	{
-		"id": 1,
-		"name": "Bebidas",
-		"sublevels": [
-			{
-				"id": 2,
-				"name": "Gaseosas",
-				"sublevels": [
-					{
-						"id": 3,
-						"name": "Con azúcar"
-					},
-					{
-						"id": 4,
-						"name": "Sin azúcar"
-					}
-				]
-			}
-		]
-	},
-	{
-		"id": 5,
-		"name": "Vegetales",
-		"sublevels": [
-			{
-				"id": 6,
-				"name": "Verduras"
-			}
-		]
-	},
-	{
-		"id": 7,
-		"name": "Almuerzos",
-		"sublevels": [
-			{
-				"id": 8,
-				"name": "Corriente",
-				"sublevels": [
-					{
-						"id": 9,
-						"name": "Normal"
-					},
-					{
-						"id": 10,
-						"name": "Especial"
-					}
-				]
-			},
-			{
-				"id": 11,
-				"name": "Ejecutivo",
-				"sublevels": [
-					{
-						"id": 12,
-						"name": "Normal"
-					},
-					{
-						"id": 13,
-						"name": "Especial"
-					}
-				]
-			}
-		]
-	},
-	{
-		"id": 14,
-		"name": "Vinos",
-		"sublevels": [
-			{
-				"id": 15,
-				"name": "Merlot"
-			},
-			{
-				"id": 16,
-				"name": "Cabernet"
-			}
-		]
-	}
-]
+{
+	"categories": [
+		{
+			"id": 1,
+			"name": "Bebidas",
+			"sublevels": [
+				{
+					"id": 2,
+					"name": "Gaseosas",
+					"sublevels": [
+						{
+							"id": 3,
+							"name": "Con azúcar"
+						},
+						{
+							"id": 4,
+							"name": "Sin azúcar"
+						}
+					]
+				},
+				{
+					"id": 5,
+					"name": "Té"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Despensa",
+			"sublevels": [
+				{
+					"id": 7,
+					"name": "Arróz"
+				},
+				{
+					"id": 8,
+					"name": "Granos"
+				},
+				{
+					"id": 9,
+					"name": "Aceites"
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "Cuidado personal",
+			"sublevels": [
+				{
+					"id": 11,
+					"name": "Cuidado Oral",
+					"sublevels": [
+						{
+							"id": 12,
+							"name": "Cepillos"
+						},
+						{
+							"id": 13,
+							"name": "Cremas dentales"
+						}
+					]
+				},
+				{
+					"id": 14,
+					"name": "Desodorantes",
+					"sublevels": [
+						{
+							"id": 15,
+							"name": "Normal"
+						},
+						{
+							"id": 16,
+							"name": "Clinical"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 17,
+			"name": "Aseo",
+			"sublevels": [
+				{
+					"id": 18,
+					"name": "Limpiapisos"
+				},
+				{
+					"id": 19,
+					"name": "Ambientadores"
+				}
+			]
+		}
+	]
 }

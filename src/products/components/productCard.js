@@ -13,12 +13,12 @@ const ProductCard = (props) => (
         </div>
         <div className="card-body">
             {
-                props.product.available === true &&
+                props.product.available === false &&
                 <div className="available">
                     <label>No disponible</label>
                 </div>
             }
-            <img src="https://www.powerplanetonline.com/cdnassets/smartwatch_x2_02_ad_l.jpg" alt="" />
+            <img src={ props.product.img } />
         </div>
         <div className="card-footer">
             <span>{ props.product.name }</span>

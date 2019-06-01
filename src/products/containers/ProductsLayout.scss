@@ -1,6 +1,7 @@
 .grid-products {
   display: flex;
   flex-flow: wrap;
+  align-items: self-start;
   .product-card {
     margin-right: 5%;
   }

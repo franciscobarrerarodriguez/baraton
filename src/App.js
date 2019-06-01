@@ -21,10 +21,13 @@ library.add(faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus, faAr
 const initialState = {
   allProducts: data.products,
   filteredProducts: data.products,
-  data: {
-    ...data
-  },
-  shoppingChart: localStorage.getItem('shoppingChart') ? JSON.parse(localStorage.getItem('shoppingChart')) : {products: []}
+  shoppingChart: localStorage.getItem('shoppingChart') ? JSON.parse(localStorage.getItem('shoppingChart')) : {products: []},
+  filters: {
+    stockQuantity: 0,
+    available: true,
+    range: 25000,
+    category: undefined
+  }
 }
 
 console.log(initialState)

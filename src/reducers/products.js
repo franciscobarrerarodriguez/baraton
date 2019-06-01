@@ -21,22 +21,28 @@ function products(state, action) {
                 shoppingChart: shoppingChart
             }
         }
-        // case 'FILTER_PRODUCTS': {
-        //     let results = [];
-        //     if (action.payload.available || action.payload.stockQuantity || action.payload.category || action.payload.range) {
-        //         const list = state.data.products;
-        //         results = list.filter(product => {
-        //             return product.available === action.payload.available
-        //                 && product.quantity >= action.payload.stockQuantity
-        //                 && action.payload.category === product.sublevel_id
-        //                 && Number(product.price.replace(',','')) <= action.payload.range;
-        //         });
-        //     }
-        //     return {
-        //         ...state,
-        //         data: { products: results }
-        //     }
-        // }
+        case 'FILTER_PRODUCTS': {
+            console.log(action.payload)
+            let results = [];
+            if (action.payload.category !== undefined) {
+                results = state.allProducts.filter(product => {
+                    return product.available === action.payload.available
+                        && product.quantity >= action.payload.stockQuantity
+                        && Number(product.price.replace(/,/g, '')) <= action.payload.range
+                        && action.payload.category === product.sublevel_id;
+                });
+            } else {
+                results = state.allProducts.filter(product => {
+                    return product.available === action.payload.available
+                        && product.quantity >= action.payload.stockQuantity
+                        && Number(product.price.replace(/,/g, '')) <= action.payload.range;
+                });
+            }
+            return {
+                ...state,
+                filteredProducts: results
+            }
+        }
         case 'FILTER_BY_CATEGORY': {
             let results = [];
             results = state.allProducts.filter(product => {
@@ -44,7 +50,8 @@ function products(state, action) {
             });
             return {
                 ...state,
-                filteredProducts: results
+                filteredProducts: results,
+                filters: { ...state.filters, category: action.payload.category }
             }
         }
         default:

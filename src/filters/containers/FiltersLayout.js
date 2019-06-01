@@ -13,44 +13,41 @@ import data from './categories';
 class FiltersLayout extends Component {
 
     state = {
-        stockQuantity: 0,
-        available: true,
-        range: 25000,
-        categories: {},
-        category: ''
+        categories: {}
     }
 
     componentWillMount() {
         this.setState({ categories: data.categories });
+        this.setState({ filters: this.props.filters })
     }
 
     componentDidUpdate() {
-        // this.props.dispatch({
-        //     type: 'FILTER_PRODUCTS',
-        //     payload: {
-        //         ...this.state
-        //     }
-        // });
+        this.props.dispatch({
+            type: 'FILTER_PRODUCTS',
+            payload: {
+                ...this.state.filters
+            }
+        });
     }
 
     handleChangeRange = event => {
-        this.setState({ range: event.target.value });
+        this.setState({ filters: { ...this.state.filters, range: event.target.value } });
     }
 
     handleIncreaseStock = () => {
-        this.setState({stockQuantity: this.state.stockQuantity + 1});
+        this.setState({ filters: { ...this.state.filters, stockQuantity: this.state.filters.stockQuantity + 1 } });
     }
 
     handleDecreaseStock = () => {
-        this.setState({ stockQuantity: this.state.stockQuantity > 0 ? this.state.stockQuantity - 1 : 0 });
+        this.setState({ filters: { ...this.state.filters, stockQuantity: this.state.filters.stockQuantity > 0 ? this.state.filters.stockQuantity - 1 : 0 } });
     }
 
     handleToggleAvailability = event => {
-        this.setState({ available: !this.state.available });
+        this.setState({ filters: { ...this.state.filters, available: !this.state.filters.available } });
     }
 
     handleChangeCategory = (sublevelId) => {
-        this.setState({ category: sublevelId })
+        this.setState({ filters: { ...this.state.filters, category: sublevelId } });
         this.props.dispatch({
             type: 'FILTER_BY_CATEGORY',
             payload: { category: sublevelId }
@@ -63,22 +60,22 @@ class FiltersLayout extends Component {
                 <div className="filters">
                     <div className="filter-row">
                         <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }
-                                    activeCategory={ this.state.category }/>
+                                    activeCategory={ this.state.filters.category }/>
                     </div>
                 </div>
                 <div className="filters">
                     <div className="filter-row">
                         <Range handleChangeRange={ this.handleChangeRange }
-                               range={ this.state.range }/>
+                               range={ this.state.filters.range }/>
                     </div>
                     <div className="filter-row">
                         <StockQuantity handleIncreaseStock={ this.handleIncreaseStock }
                                        handleDecreaseStock={ this.handleDecreaseStock }
-                                       stockQuantity={ this.state.stockQuantity }/>
+                                       stockQuantity={ this.state.filters.stockQuantity }/>
                     </div>
                     <div className="filter-row">
                         <Availability handleToggleAvailability={ this.handleToggleAvailability }
-                                      available={ this.state.available }/>
+                                      available={ this.state.filters.available }/>
                     </div>
                 </div>
             </div>
@@ -86,4 +83,9 @@ class FiltersLayout extends Component {
     }
 }
 
-export default connect()(FiltersLayout);
+function mapStateToProps(state, props) {
+    return {
+        filters: state.filters
+    }
+}
+export default connect(mapStateToProps)(FiltersLayout);

@@ -6,7 +6,7 @@ const Subcategories = props => (
             props.subcategories.map((subcategory, index) => {
                 return(
                     <li className={ `subcategory-item ${ props.activeCategory === subcategory.id ? 'active' : '' }` } key={ index }>
-                        <a href="#!" onClick={ () => { props.handleChangeCategory(subcategory.id) } }>{ subcategory.name } { props.activeCategory } - { subcategory.id }</a>
+                        <a href="#!" onClick={ () => { props.handleChangeCategory(subcategory.id) } }>{ subcategory.name }</a>
                         {
                             subcategory.sublevels !== null && subcategory.sublevels !== undefined &&
                                 <Subcategories subcategories={ subcategory.sublevels } handleChangeCategory={ props.handleChangeCategory }

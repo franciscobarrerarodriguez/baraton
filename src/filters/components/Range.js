@@ -8,10 +8,10 @@ const Range = (props) => (
         </div>
         <div className="filter-item-footer filter-group filter-range-values no-padding no-padding-top">
             <label>
-                $0
+                .min $0
             </label>
             <label>
-                ${ props.range }
+                .max ${ props.range }
             </label>
         </div>
     </div>
