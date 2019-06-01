@@ -21,31 +21,30 @@ function products(state, action) {
                 shoppingChart: shoppingChart
             }
         }
-        case 'FILTER_PRODUCTS': {
-            let results = [];
-            if (action.payload.available || action.payload.stockQuantity || action.payload.category || action.payload.range) {
-                const list = state.data.products;
-                results = list.filter(product => {
-                    return product.available === action.payload.available
-                        && product.quantity >= action.payload.stockQuantity
-                        && action.payload.category === product.sublevel_id
-                        && Number(product.price.replace(',','')) <= action.payload.range;
-                });
-            }
-            return {
-                ...state,
-                data: { products: results }
-            }
-        }
+        // case 'FILTER_PRODUCTS': {
+        //     let results = [];
+        //     if (action.payload.available || action.payload.stockQuantity || action.payload.category || action.payload.range) {
+        //         const list = state.data.products;
+        //         results = list.filter(product => {
+        //             return product.available === action.payload.available
+        //                 && product.quantity >= action.payload.stockQuantity
+        //                 && action.payload.category === product.sublevel_id
+        //                 && Number(product.price.replace(',','')) <= action.payload.range;
+        //         });
+        //     }
+        //     return {
+        //         ...state,
+        //         data: { products: results }
+        //     }
+        // }
         case 'FILTER_BY_CATEGORY': {
             let results = [];
-            const list = state.data.products;
-            results = list.filter(product => {
+            results = state.allProducts.filter(product => {
                 return action.payload.category === product.sublevel_id;
             });
             return {
                 ...state,
-                data: { products: results }
+                filteredProducts: results
             }
         }
         default:

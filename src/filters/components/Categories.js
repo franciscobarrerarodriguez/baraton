@@ -17,11 +17,12 @@ class Categories extends Component {
 
     buildCategoryTree = (category, index) => {
         return (
-            <li className="category-item" key={ index }>
-                <a href="#!">{ category.name }</a>
+            <li className={ `category-item ${ this.props.activeCategory === category.id ? 'active' : '' }` } key={ index }>
+                <a href="#!" onClick={ () => { this.props.handleChangeCategory(category.id) } }>{ category.name }</a>
                 {
                     category.sublevels !== null &&
-                        <Subcategories subcategories={ category.sublevels } handleChangeCategory={ this.props.handleChangeCategory }/>
+                        <Subcategories subcategories={ category.sublevels } handleChangeCategory={ this.props.handleChangeCategory }
+                        activeCategory={ this.props.activeCategory }/>
                 }
             </li>
         )

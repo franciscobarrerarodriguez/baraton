@@ -10,20 +10,24 @@ import FiltersLayout from './filters/containers/FiltersLayout';
 import Banner from './banner/components/Banner';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus, faArchive } from '@fortawesome/free-solid-svg-icons';
 import HandleError from "./errors/containers/handleError";
 
 import products from './reducers/products';
 import data from './products/containers/products'
 
-library.add(faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus);
+library.add(faCashRegister, faShoppingCart, faChevronDown, faPlus, faMinus, faArchive);
 
 const initialState = {
+  allProducts: data.products,
+  filteredProducts: data.products,
   data: {
     ...data
   },
   shoppingChart: localStorage.getItem('shoppingChart') ? JSON.parse(localStorage.getItem('shoppingChart')) : {products: []}
 }
+
+console.log(initialState)
 
 const store = createStore(
     products,

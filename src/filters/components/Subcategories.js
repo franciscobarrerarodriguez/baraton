@@ -5,11 +5,12 @@ const Subcategories = props => (
         {
             props.subcategories.map((subcategory, index) => {
                 return(
-                    <li className="subcategory-item" key={ index }>
-                        <a href="#!" onClick={ () => { props.handleChangeCategory(subcategory.id) } }>{ subcategory.name }</a>
+                    <li className={ `subcategory-item ${ props.activeCategory === subcategory.id ? 'active' : '' }` } key={ index }>
+                        <a href="#!" onClick={ () => { props.handleChangeCategory(subcategory.id) } }>{ subcategory.name } { props.activeCategory } - { subcategory.id }</a>
                         {
                             subcategory.sublevels !== null && subcategory.sublevels !== undefined &&
-                                <Subcategories subcategories={ subcategory.sublevels } handleChangeCategory={ props.handleChangeCategory }/>
+                                <Subcategories subcategories={ subcategory.sublevels } handleChangeCategory={ props.handleChangeCategory }
+                                               activeCategory={ props.activeCategory }/>
                         }
                     </li>
                 )

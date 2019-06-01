@@ -62,7 +62,8 @@ class FiltersLayout extends Component {
             <div className="col-20">
                 <div className="filters">
                     <div className="filter-row">
-                        <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }/>
+                        <Categories categories={ this.state.categories } handleChangeCategory={ this.handleChangeCategory }
+                                    activeCategory={ this.state.category }/>
                     </div>
                 </div>
                 <div className="filters">

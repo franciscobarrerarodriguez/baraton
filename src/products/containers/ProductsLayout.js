@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ProductCard from "../components/productCard";
 
 import './ProductsLayout.scss';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class ProductsLayout extends Component {
 
@@ -21,10 +22,16 @@ class ProductsLayout extends Component {
         return(
             <div className="col-75 grid-products">
                 {
-                    this.props.products &&
+                    this.props.products.length > 0 ? (
                         this.props.products.map((product, index) => {
                             return <ProductCard handleAddToChart={ this.handleAddToChart } key={ index } product={ product }/>
                         })
+                    ) : (
+                        <div className="no-products">
+                            <span>No hemos encontrado productos</span>
+                            <FontAwesomeIcon icon="shopping-cart" className="nav-chart-icon" size="6x"/>
+                        </div>
+                    )
                 }
             </div>
         )
@@ -33,7 +40,7 @@ class ProductsLayout extends Component {
 
 function mapStateToProps(state, props) {
     return {
-        products: state.data.products
+        products: state.filteredProducts
     }
 }
 
