@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/baraton-build/precache-manifest.0fd2607d76422a0f713aadfe74ec1e24.js"
+  "/baraton-build/precache-manifest.42aacfa9b18f806eceb82c6dcf0d2c30.js"
 );
 
 self.addEventListener('message', (event) => {
